@@ -1,0 +1,34 @@
+[
+    {
+    "id":1,
+    "SrNo":"1",
+    "BookName":"Commonwealth",
+    "Author":"Commonwealth ",
+    "Pages":"108",
+    "Category":"Cricket"
+    },
+    {
+    "id":2,
+    "SrNo":"2",
+    "BookName":"Signalman",
+    "Author":"Charles ",
+    "Pages":"18",
+    "Category":"Suspense"
+    },
+    {
+    "id":3,
+    "SrNo":"3",
+    "BookName":"Orange Pips",
+    "Author":"Conan Doyle",
+    "Pages":"20",
+    "Category":"Crime"
+    },
+    {
+    "id":4,
+    "SrNo":"4",
+    "BookName":"The Diamond ",
+    "Author":"Scott Fitzgerald ",
+    "Pages":"27",
+    "Category":"Science"
+    }
+]
