@@ -22,6 +22,8 @@ import { useState, useEffect } from "react";
 import Dashboarddemo from "./Dashboarddemo";
 import Addbookform from "./Addbookform";
 import Example from "./Example";
+import Addform from "./Addform";
+import Protected from "./Protected";
 // import { AppBar, Toolbar, Typography } from "@mui/material";
 // import './App.css';
 // import Container from 'react-bootstrap/Container';
@@ -34,14 +36,14 @@ const App = () => {
 
   return (
     <>
-
       <Router>
         <Routes>
           {/* <switch>  */}
           <Route exact path="/" element={<Login />} />
-          <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route exact path="/dashboard" element={<Protected component={Dashboard} />} />
           <Route exact path="/addform" element={<Addbookform />} />
           <Route exact path="/example" element={<Example />} />
+          <Route exact path="/addforms" element={<Addform />} />
 
           {/* </switch>  */}
         </Routes>

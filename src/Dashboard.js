@@ -1,4 +1,4 @@
-import React, { useState, Fragment, Navlink } from "react";
+import React, { useState, Fragment, useNavigate } from "react";
 import "./index.css";
 import data from "./Bookdata.json";
 import { nanoid } from "nanoid";
@@ -9,8 +9,15 @@ import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 import navlogo from "/home/hrishikeshc/Library Management System/my-app/src/logo.jpg";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { NavLink } from "react-router-dom";
+import Nav from "react-bootstrap/Nav";
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
 
 const Dashboard = () => {
+  // if(!authorized){
+  //   return<Redirect to="/"/>
+  // }
   const [contacts, setcontacts] = useState(data);
 
   const [addFormData, setAddFormData] = useState({
@@ -119,6 +126,7 @@ const Dashboard = () => {
     newContacts.splice(index, 1);
 
     setcontacts(newContacts);
+    alert("Record Deleted.");
   };
 
   //logout button
@@ -126,7 +134,6 @@ const Dashboard = () => {
   const handleClickLogout = () => {
     alert("logout sucessfull");
     localStorage.clear();
-    window.location.reload();
   };
 
   const getEmail = localStorage.getItem("emailData");
@@ -137,10 +144,11 @@ const Dashboard = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
   return (
     <>
       {/* position="static" color="secondary" */}
-      <Box sx={{ flexGrow: 1 }}>
+      {/* <Box sx={{ flexGrow: 1 }}>
         <AppBar
           position="static"
           color="secondary"
@@ -152,26 +160,50 @@ const Dashboard = () => {
               Library Management System
             </Typography>
             <h4>{getEmail}</h4>
-            <button class=" btn btn-primary" onClick={handleClickLogout}>
-              Logout
-            </button>
+            <NavLink to="/">
+              <button class=" btn btn-primary" onClick={handleClickLogout}>
+                Logout
+              </button>
+            </NavLink>
           </Toolbar>
         </AppBar>
-      </Box>
+      </Box> */}
+
+      <Navbar
+        // position="static"
+        // color="secondary"
+        style={{ color: "white", background: "#652864" }}
+      >
+        <Container>
+          <img src={navlogo} width="50" height="50" alt="" />
+          <Navbar.Brand class="bg-color-white">
+            <h3>Library Management System</h3>
+          </Navbar.Brand>
+          <h5>{getEmail}</h5>
+
+          <Nav className="me-auto">
+            <div className="position-absolute top-0 end-0">
+              <NavLink to="/">
+                <li>
+                  <button
+                    class="btn btn-outline-danger btn-lg float-right"
+                    // className=" btn btn-primary "
+                    onClick={handleClickLogout}
+                  >
+                    Logout
+                  </button>
+                </li>
+              </NavLink>
+            </div>
+          </Nav>
+        </Container>
+      </Navbar>
+
       <section class="main_heading my-2" id="book-list">
         <div class="text-center">
           <h1 class="display-4">Books List</h1>
         </div>
       </section>
-      {/* <div class="float-right">
-        <Button
-          class="btn btn-success pull-right "
-          variant="primary"
-          onClick={handleShow}
-        >
-          Add Book
-        </Button>
-      </div> */}
 
       <div className="dashboard">
         <div
@@ -182,15 +214,14 @@ const Dashboard = () => {
             margin: "1em",
           }}
         >
-          <Button
-            // class="btn btn-success"
-            class="btn btn-primary block w20 col-mt-2"
+          <button
+            class="btn btn-outline-info"
             // id="right-panel-link"
-            variant="primary"
+            // variant="primary"
             onClick={handleShow}
           >
             Add Book
-          </Button>
+          </button>
         </div>
         <form onSubmit={handleEditFormSubmit}>
           <table class="container table table-info table-striped">
@@ -240,7 +271,7 @@ const Dashboard = () => {
             <div className="row mb-4">
               <div className="mb-3">
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="Enter a SrNo."
                   onChange={handleAddFormChange}
@@ -270,7 +301,7 @@ const Dashboard = () => {
               </div>
               <div className="mb-3">
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="Pages"
                   onChange={handleAddFormChange}
@@ -289,7 +320,11 @@ const Dashboard = () => {
                 />
               </div>
               <div className="d-grid">
-                <button type="submit" className="btn btn-success">
+                <button
+                  type="submit"
+                  className="btn btn-outline-success"
+                  onClick={handleClose}
+                >
                   Add Book Here
                 </button>
               </div>
@@ -297,9 +332,9 @@ const Dashboard = () => {
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
+          {/* <Button variant="primary" onClick={handleClose}>
+            Save Changes  
+          </Button> */}
         </Modal.Footer>
       </Modal>
     </>

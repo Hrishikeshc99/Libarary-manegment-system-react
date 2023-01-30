@@ -10,14 +10,14 @@ const ReadRow = ({ contact, handleEditClick, handleDeleteClick }) => {
       <td>{contact.Category}</td>
       <td>
         <button
-          class="btn btn-success"
+          class="btn btn-outline-info"
           type="button"
           onClick={(e) => handleEditClick(e, contact)}
         >
           Edit
         </button>
         <button
-          class="btn btn-danger"
+          class="btn btn-outline-danger"
           type="button"
           onClick={() => handleDeleteClick(contact.id)}
         >
