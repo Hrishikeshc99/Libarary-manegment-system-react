@@ -30,5 +30,13 @@
     "Author":"Scott Fitzgerald ",
     "Pages":"27",
     "Category":"Science"
+    },
+    {
+    "id":5,
+    "SrNo":"5",
+    "BookName":"Gold ",
+    "Author":"LDORADO ",
+    "Pages":"300",
+    "Category":"golds"
     }
 ]

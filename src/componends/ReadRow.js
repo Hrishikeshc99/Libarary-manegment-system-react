@@ -1,7 +1,27 @@
-import React from "react";
+// import React from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import { useState, useEffect } from "react";
+import Example from "../Example";
+// import EditRow from "./EditRow";
+// import Edit from "../Editdata";
 
-const ReadRow = ({ contact, handleEditClick, handleDeleteClick }) => {
+const ReadRow = ({
+  contact,
+  handleEditClick,
+  handleDeleteClick,
+}) => {
+  // const [show, setShow] = useState(false);
+
+  // const handleClose = () => setShow(false);
+
+  // useEffect(() => {
+  //   handleClose();
+  // }, [contact]);
+
+  // const handleShow = () => setShow(true);
   return (
+
     <tr>
       <td>{contact.SrNo}</td>
       <td>{contact.BookName}</td>
@@ -12,6 +32,7 @@ const ReadRow = ({ contact, handleEditClick, handleDeleteClick }) => {
         <button
           class="btn btn-outline-info"
           type="button"
+          // onClick={handleShow}
           onClick={(e) => handleEditClick(e, contact)}
         >
           Edit
@@ -23,6 +44,18 @@ const ReadRow = ({ contact, handleEditClick, handleDeleteClick }) => {
         >
           Delete
         </button>
+        {/* <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+         
+            <Example theContact={contact} />
+          </Modal.Body>
+          <Modal.Footer>
+            
+          </Modal.Footer>
+        </Modal> */}
       </td>
     </tr>
   );
