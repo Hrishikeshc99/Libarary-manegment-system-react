@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useNavigate } from "react";
+import React, { useState, Fragment } from "react";
 import "./index.css";
 import data from "./Bookdata.json";
 import { nanoid } from "nanoid";
@@ -350,15 +350,14 @@ const Dashboard = () => {
                   name="Category"
                 />
               </div>
-              <div className="d-grid">
-                <button
-                  type="submit"
-                  className="btn btn-outline-success"
-                  // onClick={handleClose}
-                >
-                  Save Changes
-                </button>
-              </div>
+
+              <button
+                type="submit"
+                className="btn btn-outline-success"
+                // onClick={handleClose}
+              >
+                Save Changes
+              </button>
             </div>
           </form>
         </Modal.Body>
